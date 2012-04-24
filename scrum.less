@@ -1,0 +1,28 @@
+body { font-family:sans-serif; }
+h1 { font-family:"Fugaz One", sans-serif; letter-spacing:-2px; color:#ddd; text-shadow:2px 2px 1px #999; }
+table { border-collapse:collapse; }
+td { border:1px solid #ccc; }
+
+#story-header { width:170px; }
+#plus-header { width:22px; }
+
+tbody {
+  tr { height:80px; font-size:12px;
+    td { border-color:#eee; }
+    td.story { vertical-align:top; padding:10px; }
+    td.plus { text-align:center; font-weight:bold; font-size:14px; color:#999; background:#F0F0F0; width:24px;
+      button.cross { display:none; }
+      .create_todo { display:block; }
+    }
+    .todo { background:#ccc; width:100px; min-height:80px; float:left; margin:5px; padding:5px; cursor:move;
+      p { margin:0; }
+    }
+  tr.selected { background:#ddd; }
+  }
+  tr.create_story {
+    td { vertical-align:middle; text-align:center;
+      input[name='title']{ width:100px; }
+      input[name='points'] { width:35px; }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+<head>
+  <title>Meteor Scrum</title>
+  <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <header>
+   <h1>Meteor Scrum</h1>
+  </header>
+
+  <table width="100%">
+
+    <thead>
+      <tr>
+        <th id="story-header"><span>Stories</span></th>
+        <th id="plus-header"></th>
+        <th id="todo-header"><span>To Do</span></th>
+        <th id="inprogress-header"><span>In Progress</span></th>
+        <th id="verify-header"><span>Verify</span></th>
+        <th id="done-header"><span>Done</span></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{> stories_list}}
+      {{> new_story}}
+    </tbody>
+  </table>
+
+</body>
+
+<template name="stories_list">
+  {{#each stories}}
+    {{> story}}
+  {{/each}}
+</template>
+
+<template name="story">
+  <tr id="{{_id}}">
+    <td class="story">
+      <div>
+        <span>{{title}}</span>
+        <small>({{points}} points)</small>
+      </div>
+    </td>
+    <td class="plus">
+      {{> new_todo}}
+    </td>
+    <td class="todos">
+      {{> todos_list}}
+    </td>
+    <td class="wip">
+      {{> wip_list}}
+    </td>
+    <td class="verify">
+      {{> verify_list}}
+    </td>
+    <td class="done">
+      {{> done_list}}
+    </td>
+  </tr>
+</template>
+
+<template name="new_story">
+  <tr class="create_story">
+    <td>
+      <input name="title" type="text" placeholder="Title"> <input name="points" type="text" placeholder="Points">
+      <button>New Story</button>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</template>
+
+<template name="todos_list">
+  {{#each todos}}
+    <div class="todo">
+      <p>{{text}} / {{status}}</p>
+    </div>
+  {{/each}}
+</template>
+
+<template name="wip_list">
+  {{#each todos}}
+    <div class="todo">
+      <p>{{text}} / {{status}}</p>
+    </div>
+  {{/each}}
+</template>
+
+<template name="verify_list">
+  {{#each todos}}
+    <div class="todo">
+      <p>{{text}} / {{status}}</p>
+    </div>
+  {{/each}}
+</template>
+
+<template name="done_list">
+  {{#each todos}}
+    <div class="todo">
+      <p>{{text}} / {{status}}/p>
+    </div>
+  {{/each}}
+</template>
+
+<template name="new_todo">
+  <button class="cross">+</button>
+  <div class="create_todo">
+    <textarea name="text"></textarea>
+    <br>
+    <button class="create_todo_btn">New Todo</button>
+  </div>
+</template>
+

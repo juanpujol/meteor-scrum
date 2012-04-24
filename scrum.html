@@ -1,6 +1,7 @@
 <head>
   <title>Meteor Scrum</title>
   <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body>
@@ -26,6 +27,13 @@
       {{> new_story}}
     </tbody>
   </table>
+
+  <footer>
+   <p>
+    A scrum board inspired by <a href="http://scrumy.com" target="_blank">Scrumy.com</a>,
+    this project is being developed with <a href="http://meteor.com" target="_blank">Meteor.js</a> and it's still a work in progress.
+   </p>
+  </footer>
 
 </body>
 
@@ -78,7 +86,7 @@
 <template name="todos_list">
   {{#each todos}}
     <div class="todo">
-      <p>{{text}} / {{status}}</p>
+      <p>{{text}}</p>
     </div>
   {{/each}}
 </template>
@@ -86,7 +94,7 @@
 <template name="wip_list">
   {{#each todos}}
     <div class="todo">
-      <p>{{text}} / {{status}}</p>
+      <p>{{text}}</p>
     </div>
   {{/each}}
 </template>
@@ -94,7 +102,7 @@
 <template name="verify_list">
   {{#each todos}}
     <div class="todo">
-      <p>{{text}} / {{status}}</p>
+      <p>{{text}}</p>
     </div>
   {{/each}}
 </template>
@@ -102,7 +110,7 @@
 <template name="done_list">
   {{#each todos}}
     <div class="todo">
-      <p>{{text}} / {{status}}/p>
+      <p>{{text}}</p>
     </div>
   {{/each}}
 </template>

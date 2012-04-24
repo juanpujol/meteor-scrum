@@ -46,19 +46,16 @@ if(Meteor.is_client){
   };
 
   Template.new_todo.events = {
-    'click button':function(){
+    'click button.create_todo_btn':function(){
       if($("textarea").val() !== ""){
         Todos.insert({
           text: $("textarea").val(),
           status: "todo",
           story_id: this._id
         });
+        console.log("criar todo")
         return $("textarea").val("");
       };
-    },
-    'click button.cross':function(event){
-      // TODO - Fazer funcionalidade para mostrar e esconder form.
-      console.log("Show me the form");
     }
   };
 

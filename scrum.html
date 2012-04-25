@@ -5,6 +5,9 @@
 </head>
 
 <body>
+
+  <div id="loading"></div>
+
   <header>
    <h1>Meteor Scrum</h1>
   </header>
@@ -36,6 +39,10 @@
    </p>
   </footer>
 
+  <div id="new_todo">
+    {{> new_todo}}
+  </div>
+
 </body>
 
 <template name="stories_list">
@@ -53,7 +60,7 @@
       </div>
     </td>
     <td class="plus">
-      {{> new_todo}}
+      <button class="cross">+</button>
     </td>
     <td class="todos">
       {{> todos_list}}
@@ -117,11 +124,10 @@
 </template>
 
 <template name="new_todo">
-  <button class="cross">+</button>
-  <div class="create_todo">
-    <textarea name="text"></textarea>
-    <br>
-    <button class="create_todo_btn">New Todo</button>
-  </div>
+  <textarea name="text"></textarea>
+  <input type="hidden" name="sotry_id" value="">
+  <br>
+  <button class="create_todo_btn">New Todo</button>
+  <div class="tooltip-pointer"></div>
 </template>
 

@@ -2,9 +2,9 @@ Stories = new Meteor.Collection("stories");
 Todos = new Meteor.Collection("todos");
 
 if(Meteor.is_client){
-  
+
   Template.stories_list.stories = function(){
-    return Stories.find({}, {sort: {points: -1}});
+    return Stories.find({}, {sort: {points: -1}})
   };
 
   Template.new_story.events = {
@@ -51,10 +51,10 @@ if(Meteor.is_client){
         Todos.insert({
           text: $("textarea").val(),
           status: "todo",
-          story_id: this._id
+          story_id: $("input[name='sotry_id']").val()
         });
         console.log("criar todo")
-        return $("textarea").val("");
+        return $("textarea").val(""), $("#new_todo").hide();
       };
     }
   };

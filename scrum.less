@@ -6,6 +6,8 @@ a { text-decoration:none; }
 a:hover { text-decoration:underline; }
 :focus { outline:0; }
 
+#loading { width:100%; height:15px; background:#00BFFF; position:fixed; top:0; left:0; }
+
 #story-header { width:180px; }
 #plus-header { width:22px; }
 
@@ -20,11 +22,7 @@ tbody {
       div { background:#eee; padding:5px; border:1px solid #e9e9e9; }
     }
     td.plus { text-align:center; font-weight:bold; font-size:14px; color:#999; background:#F0F0F0; position:relative;
-      button.cross { display:none; }
-      .create_todo { display:block;
-        textarea { border:1px solid #ddd; height:50px; width:140px; padding:5px; }
-        button { border:1px solid #ddd; background:#fff; }
-      }
+      button.cross {  }
     }
     .todo { background:#eee; width:80px; min-height:80px; float:left; margin:5px; padding:5px; cursor:move; border-top:8px solid #ccc; font-size:11px;
       p { margin:0; }
@@ -39,6 +37,17 @@ tbody {
   }
 }
 
+#new_todo { display:none; position:absolute; left:228px; background:#ddd; width:190px; padding:5px 0; box-shadow:5px 5px 0px rgba(0,0,0,.2); border:1px solid #ccc; 
+  .tooltip-pointer { 
+    width:0; 
+    height:0; 
+    border-left: 20px solid transparent; 
+    border-right: 0px solid transparent;
+    border-bottom: 20px solid #ddd;
+    position:absolute;
+    left:-20px; top:18px;
+  }
+}
 
 footer {
   p { font-size:12px; background:#eee; padding:10px;

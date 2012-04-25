@@ -1,6 +1,6 @@
 # Meteor Scrum
 
-A scrum board inspired by Scrumy.com, this project is being developed with Meteor.js and it's still a work in progress.
+A scrum board inspired by Scrumy.com. This project is being developed with [Meteor.js](http://meteor.com "Meteor.js") and it's a work in progress.
 
 ## Live Demo
 

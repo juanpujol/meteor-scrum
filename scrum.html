@@ -94,7 +94,7 @@
 <template name="todos_list">
   {{#each todos}}
     <div class="todo">
-      <p>{{text}}</p>
+      <p>{{text}} / {{_id}}</p>
     </div>
   {{/each}}
 </template>
@@ -124,10 +124,12 @@
 </template>
 
 <template name="new_todo">
-  <textarea name="text"></textarea>
-  <input type="hidden" name="sotry_id" value="">
-  <br>
-  <button class="create_todo_btn">New Todo</button>
+  <div class="create_todo">
+    <textarea name="text"></textarea>
+    <input type="hidden" name="sotry_id" value="">
+    <br>
+    <button class="create_todo_btn">New Todo</button>
+  </div>
   <div class="tooltip-pointer"></div>
 </template>
 

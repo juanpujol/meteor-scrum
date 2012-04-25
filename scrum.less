@@ -6,7 +6,7 @@ a { text-decoration:none; }
 a:hover { text-decoration:underline; }
 :focus { outline:0; }
 
-#loading { width:100%; height:15px; background:#00BFFF; position:fixed; top:0; left:0; }
+#loading { width:100%; height:15px; background:#00BFFF; position:absolute; top:0; left:0; }
 
 #story-header { width:180px; }
 #plus-header { width:22px; }
@@ -16,9 +16,9 @@ thead {
 }
 
 tbody {
-  tr { height:80px; font-size:12px;
-    td { border-color:#eee; }
-    td.story { padding:10px; cursor:move;
+  tr { height:111px; font-size:12px;
+    td { border-color:#eee; vertical-align:top; }
+    td.story { padding:10px; cursor:move; vertical-align:middle;
       div { background:#eee; padding:5px; border:1px solid #e9e9e9; }
     }
     td.plus { text-align:center; font-weight:bold; font-size:14px; color:#999; background:#F0F0F0; position:relative;

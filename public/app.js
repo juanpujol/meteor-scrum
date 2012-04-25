@@ -1,5 +1,6 @@
 $(function(){
   $(document).on("click", "button.cross", function(){
+
     var story_id = $(this).parent().parent().attr("id");
     var form = $("#new_todo");
 

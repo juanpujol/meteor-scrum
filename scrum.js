@@ -51,12 +51,28 @@ if(Meteor.is_client){
         Todos.insert({
           text: $("textarea").val(),
           status: "todo",
+          person: $("input[name='person']").val(),
           story_id: $("input[name='sotry_id']").val()
         });
-        console.log("criar todo")
-        return $("textarea").val(""), $("#new_todo").hide();
+        return $("textarea, input[name='person']").val(""), $("#new_todo").hide();
       };
+    },
+    'keydown': function(event){
+      if (event.keyCode === 13 && $("input[name='text']").val() !== "") {
+        event.preventDefault();
+        Todos.insert({
+          text: $("textarea").val(),
+          status: "todo",
+          person: $("input[name='person']").val(),
+          story_id: $("input[name='sotry_id']").val()
+        });
+        return $("textarea, input[name='person']").val(""), $("#new_todo").hide();
+      }
     }
   };
 
 };
+
+if(Meteor.is_server){
+
+}

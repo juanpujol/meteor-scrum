@@ -1,6 +1,7 @@
 <head>
   <title>Meteor Scrum</title>
   <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </head>
 
@@ -25,7 +26,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="content">
       {{> stories_list}}
       {{> new_story}}
     </tbody>
@@ -52,7 +53,7 @@
 </template>
 
 <template name="story">
-  <tr id="{{_id}}">
+  <tr class="content" id="{{_id}}">
     <td class="story">
       <div>
         <span>{{title}}</span>
@@ -62,16 +63,16 @@
     <td class="plus">
       <button class="cross">+</button>
     </td>
-    <td class="todos">
+    <td class="sortable todos" data-status="todo">
       {{> todos_list}}
     </td>
-    <td class="wip">
+    <td class="sortable wip" data-status="wip">
       {{> wip_list}}
     </td>
-    <td class="verify">
+    <td class="sortable verify" data-status="verify">
       {{> verify_list}}
     </td>
-    <td class="done">
+    <td class="sortable done" data-status="done">
       {{> done_list}}
     </td>
   </tr>
@@ -93,32 +94,36 @@
 
 <template name="todos_list">
   {{#each todos}}
-    <div class="todo">
-      <p>{{text}} / {{_id}}</p>
+    <div class="todo" data-id="{{_id}}">
+      <p>{{text}}</p>
+      <p>{{person}}</p>
     </div>
   {{/each}}
 </template>
 
 <template name="wip_list">
   {{#each todos}}
-    <div class="todo">
+    <div class="todo" data-id="{{_id}}">
       <p>{{text}}</p>
+      <p>{{person}}</p>
     </div>
   {{/each}}
 </template>
 
 <template name="verify_list">
   {{#each todos}}
-    <div class="todo">
+    <div class="todo" data-id="{{_id}}">
       <p>{{text}}</p>
+      <p>{{person}}</p>
     </div>
   {{/each}}
 </template>
 
 <template name="done_list">
   {{#each todos}}
-    <div class="todo">
+    <div class="todo" data-id="{{_id}}">
       <p>{{text}}</p>
+      <p>{{person}}</p>
     </div>
   {{/each}}
 </template>
@@ -126,6 +131,7 @@
 <template name="new_todo">
   <div class="create_todo">
     <textarea name="text"></textarea>
+    <input type="text" name="person" placeholder="Person">
     <input type="hidden" name="sotry_id" value="">
     <br>
     <button class="create_todo_btn">New Todo</button>

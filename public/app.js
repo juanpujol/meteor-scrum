@@ -15,29 +15,37 @@ $(function(){
     initSortable();
   })
 
-  var currentTodo, currentStatus
+  var currentTodo, 
+      currentStatus, 
+      currentStory
 
   var initSortable = function(){
+
+    var updateCurrentTodo = function(item){
+      item.parent().effect("highlight", {}, 1000);
+      item.remove();
+    }
+
     $(".sortable").sortable({
       connectWith:".sortable",
       forcePlaceholderSize:true,
       tolerance:'pointer',
+      start: function(e, ui) { ui.item.addClass("dragging"); console.log(ui.item) },
+      stop: function(e, ui) { ui.item.removeClass("dragging") },
       update:function(e, ui){
-        currentTodo = ui.item.data("id");
+        currentTodo = ui.item.attr("id");
         currentStatus = ui.item.parent().data("status");
         currentStory = ui.item.parent().parent().attr("id");
-        Todos.update(currentTodo, { $set : { status:currentStatus, story_id:currentStory }})
-        ui.item.remove()
+        Todos.update(currentTodo, { $set : { status:currentStatus, story_id:currentStory }}, updateCurrentTodo(ui.item))
       }
-    });
-    $(".sortable").disableSelection();
+    }).disableSelection()
 
-    $("tbody.content").sortable({
+    $("tbody").sortable({
+      handle: 'td:eq(0)',
       opacity: 0.6,
       start: function(e, ui) { ui.item.addClass("sorting-story") },
       stop: function(e, ui) { ui.item.removeClass("sorting-story") }
-    });
-    $("tbody.content").disableSelection();
+    }).disableSelection()
   }
 
 })

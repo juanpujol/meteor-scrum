@@ -30,7 +30,7 @@ if(Meteor.is_client){
   };
 
   Template.todos_list.todos = function(){
-    return Todos.find({story_id:this._id, status:"todo"});
+    return Todos.find({story_id:this._id, status:"todo"})
   };
 
   Template.wip_list.todos = function(){
@@ -70,9 +70,12 @@ if(Meteor.is_client){
       }
     }
   };
-
 };
 
-if(Meteor.is_server){
-
+if (Meteor.is_server) {
+  Meteor.startup(function () {
+    if (Stories.find().count() === 0) {
+      console.log("OK")
+    }
+  });
 }

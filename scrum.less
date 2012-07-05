@@ -1,5 +1,6 @@
 body { font-family:sans-serif; }
 h1 { font-family:"Fugaz One", sans-serif; letter-spacing:-2px; color:#00BFFF; }
+h2 { font-size:16px; font-style:italic; }
 table { border-collapse:collapse; }
 td { border:1px solid #ccc; }
 a { text-decoration:none; }
@@ -26,9 +27,27 @@ tbody {
       button.cross { position:relative; }
     }
     td.sortable { padding-right:30px; }
-    .todo { background:#eee; width:80px; height:80px; float:left; margin:5px; padding:5px; cursor:move; border-top:8px solid #ccc; font-size:11px;
+    .todo { 
+      background:#eee; 
+      width:80px; 
+      height:80px; 
+      float:left; 
+      margin:5px; 
+      padding:5px; 
+      cursor:move; 
+      border-top:8px solid #ccc; 
+      font-size:11px; 
+      position:relative;
+      -webkit-animation: scale 0.8s ease;
+      -moz-animation: scale 0.8s ease;
+      -o-animation: scale 0.8s ease;
+
       p { margin:0; }
+      small { background:#aaa; padding:5px; display:block; position:absolute; right:5px; bottom:5px; color:#fff; }
     }
+    .dragging { 
+ 
+     }
   tr.selected { background:#ddd; }
   }
   tr.create_story {
@@ -58,4 +77,31 @@ footer {
   p { font-size:12px; background:#eee; padding:10px;
     a { color:#00BFFF; }
   }
+}
+
+@-webkit-keyframes scale {
+  from { -webkit-transform: scale(1.5); opacity:0; }
+  to { -webkit-transform: scale(1); opacity:1; }
+}
+@-moz-keyframes scale {
+  from { -moz-transform: scale(1.5); opacity:0; }
+  to { -moz-transform: scale(1); opacity:1; }
+}
+@-o-keyframes scale {
+  from { -o-transform: scale(1.5); opacity:0; }
+  to { -o-transform: scale(1); opacity:1; }
+}
+
+
+@-webkit-keyframes scaleUp {
+  from { -webkit-transform: scale(1); }
+  to { -webkit-transform: scale(1.5); }
+}
+@-moz-keyframes scaleUp {
+  from { -moz-transform: scale(1); }
+  to { -moz-transform: scale(1.5); }
+}
+@-o-keyframes scaleUp {
+  from { -o-transform: scale(1); }
+  to { -o-transform: scale(1.5); }
 }

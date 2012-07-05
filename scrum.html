@@ -2,6 +2,7 @@
   <title>Meteor Scrum</title>
   <link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="jquery.ui.touch-punch.min.js"></script>
   <script type="text/javascript" src="app.js"></script>
 </head>
 
@@ -11,6 +12,7 @@
 
   <header>
    <h1>Meteor Scrum</h1>
+   <h2>Scrum is an iterative and incremental agile software development method for managing software projects and product or application development.</h2>
   </header>
 
   <table width="100%">
@@ -57,7 +59,9 @@
     <td class="story">
       <div>
         <span>{{title}}</span>
-        <small>({{points}} points)</small>
+        {{#if points}}
+          <small>({{points}} points)</small>
+        {{/if}}
       </div>
     </td>
     <td class="plus">
@@ -94,36 +98,44 @@
 
 <template name="todos_list">
   {{#each todos}}
-    <div class="todo" data-id="{{_id}}">
+    <div class="todo" id="{{_id}}">
       <p>{{text}}</p>
-      <p>{{person}}</p>
+      {{#if person}}
+        <small>{{person}}</small>
+      {{/if}}
     </div>
   {{/each}}
 </template>
 
 <template name="wip_list">
   {{#each todos}}
-    <div class="todo" data-id="{{_id}}">
+    <div class="todo" id="{{_id}}">
       <p>{{text}}</p>
-      <p>{{person}}</p>
+      {{#if person}}
+        <small>{{person}}</small>
+      {{/if}}
     </div>
   {{/each}}
 </template>
 
 <template name="verify_list">
   {{#each todos}}
-    <div class="todo" data-id="{{_id}}">
+    <div class="todo" id="{{_id}}">
       <p>{{text}}</p>
-      <p>{{person}}</p>
+      {{#if person}}
+        <small>{{person}}</small>
+      {{/if}}
     </div>
   {{/each}}
 </template>
 
 <template name="done_list">
   {{#each todos}}
-    <div class="todo" data-id="{{_id}}">
+    <div class="todo" id="{{_id}}">
       <p>{{text}}</p>
-      <p>{{person}}</p>
+      {{#if person}}
+        <small>{{person}}</small>
+      {{/if}}
     </div>
   {{/each}}
 </template>
